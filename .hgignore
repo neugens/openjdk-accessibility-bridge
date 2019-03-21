@@ -1,0 +1,17 @@
+/target/
+
+syntax: glob
+target/*
+bin/*
+*~
+.settings
+.classpath
+.project
+nbactions*.xml
+nb-configuration.xml
+*.versionsBackup
+*.iml
+.idea/*
+.vscode/*
+.git
+
