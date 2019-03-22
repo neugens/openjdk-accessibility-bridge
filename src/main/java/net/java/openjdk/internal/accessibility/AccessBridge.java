@@ -37,6 +37,7 @@ public class AccessBridge {
     static {
         System.loadLibrary("OpenJDKAccessBridge");
         nativeData = initATK();
+        System.err.println(nativeData);
     }
     
     public AccessBridge() {

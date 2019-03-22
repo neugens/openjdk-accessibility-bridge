@@ -56,27 +56,53 @@ public class ATKWindowEventListener implements WindowListener {
 
     @Override
     public void windowClosed(WindowEvent e) {
-        System.err.println("windowClosed");
+    	Object window = e.getSource();
+        if (window instanceof Accessible) {
+            Accessible accessibleWindow = (Accessible) window;
+            AccessibleContext ac = accessibleWindow.getAccessibleContext();
+            System.err.println("closed: " + ac.getAccessibleDescription() + " - " + ac);
+        }
     }
 
     @Override
     public void windowIconified(WindowEvent e) {
-        System.err.println("windowIconified");
+    	Object window = e.getSource();
+        if (window instanceof Accessible) {
+            Accessible accessibleWindow = (Accessible) window;
+            AccessibleContext ac = accessibleWindow.getAccessibleContext();
+            System.err.println("iconified: " + ac.getAccessibleDescription() + " - " + ac);
+        }
     }
 
     @Override
     public void windowDeiconified(WindowEvent e) {
-        System.err.println("windowDeiconified");
+    	Object window = e.getSource();
+        if (window instanceof Accessible) {
+            Accessible accessibleWindow = (Accessible) window;
+            AccessibleContext ac = accessibleWindow.getAccessibleContext();
+            System.err.println("Deiconified: " + ac.getAccessibleDescription() + " - " + ac);
+        }
     }
 
     @Override
     public void windowActivated(WindowEvent e) {
-        System.err.println("windowActivated");
+    	Object window = e.getSource();
+        if (window instanceof Accessible) {
+            Accessible accessibleWindow = (Accessible) window;
+            AccessibleContext ac = accessibleWindow.getAccessibleContext();
+            System.err.println("activated: " + ac.getAccessibleDescription() + " - " + ac);
+        }
     }
 
     @Override
     public void windowDeactivated(WindowEvent e) {
-        System.err.println("windowDeactivated");
+    	Object window = e.getSource();
+        if (window instanceof Accessible) {
+            Accessible accessibleWindow = (Accessible) window;
+            
+            AccessibleContext ac = accessibleWindow.getAccessibleContext();
+            System.err.println("deactivated: " + ac.getAccessibleDescription() + " - " + ac);
+        }
     }
 
 }

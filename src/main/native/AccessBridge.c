@@ -29,15 +29,27 @@
 #include <jni.h>
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <atk-bridge.h>
 #include "AccessBridge.h"
 
 JNIEXPORT long JNICALL
 Java_net_java_openjdk_internal_accessibility_AccessBridge_initATK(JNIEnv *env,
         jclass AccessBridgeClass)
 {
+	int initATK = atk_bridge_adaptor_init (NULL, NULL);
+
+	if(initATK)
+		printf("Initialized\n",&initATK);
+	else
+		printf("Not Initialized\n",&initATK);
+
+	atk_bridge_adaptor_cleanup();
+
     fprintf(stderr, "Java_net_java_openjdk_internal_accessibility_AccessBridge_initATK\n");
 
     OpenJDKAccessBridge* bridge = (OpenJDKAccessBridge*) malloc(sizeof(OpenJDKAccessBridge));
     (*env)->GetJavaVM(env, &bridge->jvm);
+
 }
+
+
