@@ -1,6 +1,6 @@
 CC         = gcc
 JAVAH      = javah
-MYCFLAGS   = -c -Wall -fPIC $(EXTRA_CFLAGS) `pkg-config --libs atk-bridge-2.0`
+MYCFLAGS   = -c -Wall -fPIC $(EXTRA_CFLAGS) `pkg-config atk-bridge-2.0 --libs`
 MYLDFLAGS  = -fPIC -shared $(EXTRA_CFLAGS)
 COPY       = cp -a
 
