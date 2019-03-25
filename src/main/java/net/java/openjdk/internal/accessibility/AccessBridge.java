@@ -37,6 +37,7 @@ public class AccessBridge {
     
     static {
         System.loadLibrary("OpenJDKAccessBridge");
+        //I don't know why I've a runtime Warning on the root
         inizialaized = initATK();
         System.err.println(inizialaized);
     }
@@ -48,6 +49,7 @@ public class AccessBridge {
     
     @Override
     protected void finalize() throws Throwable {
+    	//when the Garbage collector destroy this object destroy also the C object
     	super.finalize();
     	freeATK();    	
     }
