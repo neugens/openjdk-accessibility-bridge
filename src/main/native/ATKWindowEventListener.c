@@ -26,63 +26,111 @@ Java_net_java_openjdk_internal_accessibility_ATKWindowEventListener_freeAtkWindo
 
 JNIEXPORT void JNICALL
 Java_net_java_openjdk_internal_accessibility_ATKWindowEventListener_atkWindowOpened
-	(JNIEnv *env, jclass ATKWindowEventListenerclass, jlong cObject, jstring dscription)
+	(JNIEnv *env, jclass ATKWindowEventListenerclass, jlong cObject, jstring description)
 {
-
-    fprintf(stderr, "Java_net_java_openjdk_internal_accessibility_ATKWindowEventListener_windowOpened\n");
+    fprintf(stderr, "ATKWindowEventListener_windowOpened description is: ");
+    if (description != NULL){
+    	const char *utfdesciption;
+    	utfdesciption = (*env)->GetStringUTFChars(env, description, NULL);
+    	fprintf(stderr, "%s\n", utfdesciption);
+    }
+    else
+    	fprintf(stderr, "NULL\n");
 
 }
 
 JNIEXPORT void JNICALL
 Java_net_java_openjdk_internal_accessibility_ATKWindowEventListener_atkWindowClosing
-	(JNIEnv *env, jclass ATKWindowEventListenerclass, jlong cObject, jstring dscription)
+	(JNIEnv *env, jclass ATKWindowEventListenerclass, jlong cObject, jstring description)
 {
 
-    fprintf(stderr, "Java_net_java_openjdk_internal_accessibility_ATKWindowEventListener_windowClosing\n");
+    fprintf(stderr, "ATKWindowEventListener_windowClosing description is: ");
+    if (description != NULL){
+    	const char *utfdesciption;
+    	utfdesciption = (*env)->GetStringUTFChars(env, description, NULL);
+    	fprintf(stderr, "%s\n", utfdesciption);
+    }
+    else
+    	fprintf(stderr, "NULL\n");
 
 }
 
 JNIEXPORT void JNICALL
 Java_net_java_openjdk_internal_accessibility_ATKWindowEventListener_atkWindowClosed
-	(JNIEnv *env, jclass ATKWindowEventListenerclass, jlong cObject, jstring dscription)
+	(JNIEnv *env, jclass ATKWindowEventListenerclass, jlong cObject, jstring description)
 {
 
-    fprintf(stderr, "Java_net_java_openjdk_internal_accessibility_ATKWindowEventListener_windowClosed\n");
+    fprintf(stderr, "ATKWindowEventListener_windowClosed description is: ");
+    if (description != NULL){
+    	const char *utfdesciption;
+    	utfdesciption = (*env)->GetStringUTFChars(env, description, NULL);
+    	fprintf(stderr, "%s\n", utfdesciption);
+    }
+    else
+    	fprintf(stderr, "NULL\n");
 
 }
 
 JNIEXPORT void JNICALL
 Java_net_java_openjdk_internal_accessibility_ATKWindowEventListener_atkWindowIconified
-	(JNIEnv *env, jclass ATKWindowEventListenerclass, jlong cObject, jstring dscription)
+	(JNIEnv *env, jclass ATKWindowEventListenerclass, jlong cObject, jstring description)
 {
 
-    fprintf(stderr, "Java_net_java_openjdk_internal_accessibility_ATKWindowEventListener_windowIconified\n");
+    fprintf(stderr, "ATKWindowEventListener_windowIconified description is: ");
+    if (description != NULL){
+    	const char *utfdesciption;
+    	utfdesciption = (*env)->GetStringUTFChars(env, description, NULL);
+    	fprintf(stderr, "%s\n", utfdesciption);
+    }
+    else
+    	fprintf(stderr, "NULL\n");
 
 }
 
 JNIEXPORT void JNICALL
 Java_net_java_openjdk_internal_accessibility_ATKWindowEventListener_atkWindowDeiconified
-	(JNIEnv *env, jclass ATKWindowEventListenerclass, jlong cObject, jstring dscription)
+	(JNIEnv *env, jclass ATKWindowEventListenerclass, jlong cObject, jstring description)
 {
 
-    fprintf(stderr, "Java_net_java_openjdk_internal_accessibility_ATKWindowEventListener_windowDeiconified\n");
+    fprintf(stderr, "ATKWindowEventListener_windowDeiconified description is: ");
+    if (description != NULL){
+    	const char *utfdesciption;
+    	utfdesciption = (*env)->GetStringUTFChars(env, description, NULL);
+    	fprintf(stderr, "%s\n", utfdesciption);
+    }
+    else
+    	fprintf(stderr, "NULL\n");
 
 }
 
 JNIEXPORT void JNICALL
 Java_net_java_openjdk_internal_accessibility_ATKWindowEventListener_atkWindowActivated
-	(JNIEnv *env, jclass ATKWindowEventListenerclass, jlong cObject, jstring dscription)
+	(JNIEnv *env, jclass ATKWindowEventListenerclass, jlong cObject, jstring description)
 {
 
-    fprintf(stderr, "Java_net_java_openjdk_internal_accessibility_ATKWindowEventListener_windowActivated\n");
+    fprintf(stderr, "ATKWindowEventListener_windowActivated description is: ");
+	if (description != NULL){
+		const char *utfdesciption;
+		utfdesciption = (*env)->GetStringUTFChars(env, description, NULL);
+		fprintf(stderr, "%s\n", utfdesciption);
+	}
+	else
+		fprintf(stderr, "NULL\n");
 
 }
 
 JNIEXPORT void JNICALL
 Java_net_java_openjdk_internal_accessibility_ATKWindowEventListener_atkWindowDeactivated
-	(JNIEnv *env, jclass ATKWindowEventListenerclass, jlong cObject, jstring dscription)
+	(JNIEnv *env, jclass ATKWindowEventListenerclass, jlong cObject, jstring description)
 {
 
-    fprintf(stderr, "Java_net_java_openjdk_internal_accessibility_ATKWindowEventListener_atkWindowDeactivated\n");
+    fprintf(stderr, "ATKWindowEventListener_windowDeactivated description is: ");
+    if (description != NULL){
+    	const char *utfdesciption;
+    	utfdesciption = (*env)->GetStringUTFChars(env, description, NULL);
+    	fprintf(stderr, "%s\n", utfdesciption);
+    }
+    else
+    	fprintf(stderr, "NULL\n");
 
 }
