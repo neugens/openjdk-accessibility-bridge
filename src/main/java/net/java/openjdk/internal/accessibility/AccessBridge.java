@@ -31,17 +31,24 @@ import com.sun.java.accessibility.util.SwingEventMonitor;
 
 public class AccessBridge {
 
-    private static native long initATK();
-    private static long nativeData;
+    private static native boolean initATK();
+    private static native void freeATK();
+    private static boolean inizialaized;
     
     static {
         System.loadLibrary("OpenJDKAccessBridge");
-        nativeData = initATK();
-        System.err.println(nativeData);
+        inizialaized = initATK();
+        System.err.println(inizialaized);
     }
     
     public AccessBridge() {
         EventQueueMonitor.isGUIInitialized();
         SwingEventMonitor.addWindowListener(new ATKWindowEventListener());
+    }
+    
+    @Override
+    protected void finalize() throws Throwable {
+    	super.finalize();
+    	freeATK();    	
     }
 }

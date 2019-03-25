@@ -33,6 +33,16 @@ import javax.accessibility.Accessible;
 import javax.accessibility.AccessibleContext;
 
 public class ATKWindowEventListener implements WindowListener {
+	
+	private static native long initAtkWindows();
+	private static native void freeAtkWindows(long cObject);
+	private static native void windowOpened(long cObject, String description);
+	private long cObject;
+	
+	public ATKWindowEventListener() {
+		super();
+		cObject= initAtkWindows();
+	}
 
     @Override
     public void windowOpened(WindowEvent e) {
@@ -40,7 +50,9 @@ public class ATKWindowEventListener implements WindowListener {
         if (window instanceof Accessible) {
             Accessible accessibleWindow = (Accessible) window;
             AccessibleContext ac = accessibleWindow.getAccessibleContext();
-            System.err.println("opening: " + ac.getAccessibleDescription() + " - " + ac);
+            String description= ac.getAccessibleDescription();
+            //System.err.println("opening: " + description + " - " + ac);
+            windowOpened(cObject, description);
         }
     }
 
@@ -103,6 +115,13 @@ public class ATKWindowEventListener implements WindowListener {
             AccessibleContext ac = accessibleWindow.getAccessibleContext();
             System.err.println("deactivated: " + ac.getAccessibleDescription() + " - " + ac);
         }
+    }
+    
+    @Override
+    protected void finalize() throws Throwable {
+    	// TODO Auto-generated method stub
+    	super.finalize();
+    	freeAtkWindows(cObject);
     }
 
 }

@@ -25,7 +25,7 @@ MYLDFLAGS  += `pkg-config --libs gtk+-2.0 atk-bridge-2.0`
 MYLDFLAGS  += `pkg-config gthread-2.0 --libs`
 
 .PHONY:
-JNI_LIST = net.java.openjdk.internal.accessibility.AccessBridge
+JNI_LIST = net.java.openjdk.internal.accessibility.AccessBridge net.java.openjdk.internal.accessibility.ATKWindowEventListener
 
 $(JNI_LIST):
 	$(JAVAH) -force -classpath $(CLASSPATH) -d $(TARGET_SRC) $(JNI_LIST)
